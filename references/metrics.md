@@ -149,6 +149,97 @@ Use this file when justifying recommendations with data, estimating impact, or c
 
 ---
 
+## CORE WEB VITALS THRESHOLDS (Google / web.dev)
+
+| Metric | Good | Needs Improvement | Poor | Measurement |
+|--------|------|-------------------|------|-------------|
+| LCP (Largest Contentful Paint) | **≤2500ms** | 2500–4000ms | >4000ms | p75 of real-user field data |
+| INP (Interaction to Next Paint) | **≤200ms** | 200–500ms | >500ms | p75 of real-user field data |
+| CLS (Cumulative Layout Shift) | **≤0.1** | 0.1–0.25 | >0.25 | p75 of real-user field data |
+
+**Critical**: Use 75th percentile of real-user field data — NOT lab averages.
+
+---
+
+## EXTENDED PERFORMANCE METRICS
+
+| Metric | Value | Context |
+|--------|-------|---------|
+| Mobile abandonment (>3s load) | **>50%** | Over half of mobile users abandon |
+| User expectation baseline | **<2 seconds** | 50% of users expect this |
+| Mobile sites exceeding 10s | **75%** | Most sites fail this threshold |
+| Revenue impact (19s → 5s) | **2× mobile ad revenue** | Google/DoubleClick model |
+| INP violations (>200ms) → rage-clicks | **+15%** | Retail flow correlation |
+| 2-second page delay → session length | **-51%** | Session length decrease |
+| Start Render sweet spot | **0.9s – 1.5s** | Conversion peaks |
+| Conversion peak — desktop | **~1.8s load time** | Device-specific optimum |
+| Conversion peak — tablet | **~1.9s load time** | Device-specific optimum |
+| Conversion peak — mobile | **~2.7s load time** | Device-specific optimum |
+| CLS improvement → ad revenue | **+10%** | iCook case study |
+
+---
+
+## ENHANCED FORM & CHECKOUT FAILURE RATES
+
+| Field / Feature | Failure Metric |
+|----------------|----------------|
+| Required/Optional fields indicated (both) | Only **14% of sites** do it (86% fail) |
+| Credit card auto-formatting spaces | **80% of sites fail** |
+| Users who type card numbers with spaces | **23% of users** |
+| Expiration date format matching card | **72% of sites fail** |
+| Payment data cleared on unrelated errors | **34% of sites** |
+| Generic error messages used | **98% of sites** |
+| Sites with no inline validation | **31% of sites** |
+| Shipping speed labels only (no dates) | **41% of sites fail** |
+| Pre-validation (errors during typing) | **+20% perceived error rate** |
+| Users abandoning due to phone field | **15%** (no justification given) |
+| Users abandoning due to DOB field | **35%** (no justification given) |
+| Users abandoning — missing payment method | **8%** |
+| Users re-entering payment data after error | **45% more likely to abandon** |
+
+---
+
+## AUTHENTICATION METRICS
+
+| Metric | Value | Context |
+|--------|-------|---------|
+| Show password toggle reduction in failures | **~12%** | Login failure rate improvement |
+| Password manager impact | Significant increase | Stronger password adoption (NIST) |
+
+---
+
+## ADVANCED ACCESSIBILITY & INTERACTION METRICS
+
+| Metric | Value | Context |
+|--------|-------|---------|
+| Heading hierarchy failure — screen reader impact | **100% abandonment** | Broken H1→H2→H3 structure |
+| Icon-only buttons without aria-label | **100% abandonment** | Screen reader users only |
+| Search without visible label or aria-label | **100% inaccessible** | Screen reader users |
+| Target size 20×20px mis-tap increase | **+40%** | vs. WCAG minimum |
+| Autofill attributes (`autocomplete=`) speedup | **40–60% faster** | Returning users with stored data |
+| Mobile autofill failure | **64% of mobile sites fail** | Autocapitalization on email |
+
+---
+
+## VISUAL & RESPONSIVE METRICS
+
+| Metric | Value | Context |
+|--------|-------|---------|
+| Horizontal scroll bounce rate increase | **~70% higher** | Perceived as "broken site" |
+| Image aspect ratio distortion trust drop | **~5%** | Trust-based conversion metrics |
+| High-DPI assets missing — brand quality drop | **~10%** | Perceived quality metric |
+
+---
+
+## SHIPPING UX METRICS
+
+| Metric | Value | Context |
+|--------|-------|---------|
+| Specific delivery dates vs. speed labels | **20% less abandonment** | Users with specific dates |
+| Sites failing to show delivery dates | **41%** | Speed labels only |
+
+---
+
 ## DOCUMENTED CONTRADICTIONS (USE WHEN RELEVANT)
 
 | Conflict | Resolution |
@@ -160,3 +251,5 @@ Use this file when justifying recommendations with data, estimating impact, or c
 | Reset buttons: user need vs. UX anti-pattern | Replace with "Start Over" text link + confirmation |
 | Fitts's Law applicability to touchscreens | Use as guideline; finger occlusion is a real factor |
 | WCAG (44px) vs. Android (48dp) vs. ergonomic (35–40px) | Use 48×48 for maximum cross-platform safety |
+| Rich snippets increase CTR vs. Knowledge Graphs lower CTR | Context-dependent; Rich snippets help listings, KGs reduce clicks for top organic results |
+| Start Render sweet spot exists but varies by device | Use device-specific peaks: desktop 1.8s, tablet 1.9s, mobile 2.7s |

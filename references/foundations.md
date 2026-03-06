@@ -207,11 +207,56 @@ Formula: T = a + b log₂(1 + D/W) where T = time, D = distance, W = target widt
 - Binary: Design is fully responsive and zoom-friendly? Yes/No
 
 ### Page Load Time Thresholds
-- 0.1 seconds: Perceived as "instant"
+- 0.1 seconds: Perceived as "instant" — direct manipulation feedback must complete within 100ms
 - 1.0 second: Perceived as "seamless" — no indicator needed
 - >1.0 second: **REQUIRES a status indicator** (spinner or progress bar)
+- >10 seconds: Show percent-complete progress indicator OR allow the user to interrupt/cancel
 - 1s load: ~20% bounce rate
-- 3s load: ~40% bounce rate
+- 3s load: ~40% bounce rate; over 50% of mobile users abandon sites loading >3 seconds
 - 5s load: ~60% bounce rate
 - 10s load: >90% bounce rate
 - 1s → 10s increase: 123% increase in bounce probability
+- 2-second expectation baseline: 50% of users expect pages to load in <2 seconds
+- 75% of mobile sites currently take >10 seconds to load (massive CRO opportunity)
+- Revenue impact: Moving from 19s → 5s load time can DOUBLE mobile ad revenue
+
+### Core Web Vitals (Google / web.dev)
+Measure using **75th percentile of real-user field data** — never lab averages.
+
+**Largest Contentful Paint (LCP)** — perceived load speed:
+- ≤2500ms = "Good" | 2500–4000ms = "Needs Improvement" | >4000ms = "Poor"
+- Binary: LCP at p75 ≤2500ms? Yes/No
+
+**Interaction to Next Paint (INP)** — responsiveness:
+- ≤200ms = "Good" | 200–500ms = "Needs Improvement" | >500ms = "Poor"
+- INP violations (>200ms) correlate with ~15% increase in rage-clicks in retail flows
+- 2-second delays correlate with up to 51% decrease in session length
+- Binary: INP at p75 ≤200ms? Yes/No
+
+**Cumulative Layout Shift (CLS)** — visual stability:
+- ≤0.1 = "Good" | 0.1–0.25 = "Needs Improvement" | >0.25 = "Poor"
+- Improving CLS directly linked to ad revenue increases (iCook case study: +10% ad revenue)
+- Visual instability causes accidental clicks and form field errors
+- Binary: CLS at p75 ≤0.1? Yes/No
+
+**Start Render sweet spot**: 0.9s–1.5s (conversion peaks by device: desktop ~1.8s, tablet ~1.9s, mobile ~2.7s)
+
+---
+
+## PART 8: ADDITIONAL DOCUMENTED CONTRADICTIONS
+
+### SERP Features Paradox
+- Rich snippets **increase CTR** for listings that earn them
+- Knowledge Graphs **can LOWER CTR** for the top organic result — they answer the query on the SERP, removing the click incentive
+- Status: Both findings validated in different contexts
+
+### Heuristic Definition Conflict
+- Nielsen/Molich: 10 usability heuristics (high-level principles)
+- Baymard: 207–771 heuristics (component-level requirements)
+- NOT the same category — terminology conflict (both use "heuristics" for different scopes)
+
+### Research Data Discrepancies
+- Baymard guideline count: cited as 207, 650, 700+, or 771 — living, tiered, evolving database
+- Baymard total research hours: cited as 200,000 or 150,000 — likely reflects different research phases
+- Most CRO blog "rules" are industry standards or professional opinions, NOT controlled academic experiments
+- Exception: Load time/bounce and inline validation findings have supporting empirical data

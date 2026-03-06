@@ -336,3 +336,215 @@ Based on 200,000+ hours of research, 4,400+ test sessions, 771 verified guidelin
 - Baymard "UX-Ray" specialized AI: **95% accuracy** vs. human auditors
 - Generic GPT-4 prompts: **20–75% accuracy** range
 - This skill is designed to bridge that gap by embedding domain-specific knowledge
+
+---
+
+## PART 13: ENHANCED FORM DESIGN PRINCIPLES
+
+### Placeholder-as-Label Anti-Pattern
+- **NEVER use placeholder text as the only label** — labels must persist during and after entry
+- Finding: Users relying on placeholders are **3× more likely to forget** field requirements if interrupted (notification, phone call)
+- Finding: Placeholders provide zero memory support once focus leaves the field — instant "user amnesia"
+- Finding: "Placeholder as label" causes higher error rates and more form submission failures
+- Essential instructions (e.g., password requirements) MUST be visible outside/below the field, never in a placeholder
+- Placeholders should be restricted to supplementary hints/examples only
+- Binary: All fields have persistent, visible labels (not placeholder-only)? Yes/No
+
+### Required vs. Optional Field Indication
+- **EVERY field must explicitly indicate whether it is "Required" or "Optional"**
+- Finding: **86% of sites fail** to indicate both required and optional fields
+- Finding: Only 14% of sites correctly indicate both (6% on mobile)
+- Clear distinction significantly reduces validation error rates
+- Binary: All fields marked as Required or Optional? Yes/No
+
+### Promo/Gift Code — Apply Button Exception
+- Apply buttons are **expected and correct** specifically for promo codes and gift cards
+- Must provide success confirmation (show code + updated total amount) when applied
+- This is an exception to the general "remove Apply buttons" rule
+- Binary: Promo/gift fields have Apply button with success confirmation? Yes/No
+
+### Credit Card — Spaces and Format Tolerance
+- Credit card fields MUST allow spaces AND auto-format them as the user types
+- Finding: **80% of sites fail** to auto-format credit card spaces
+- Finding: **23% of users** naturally type card numbers with spaces
+- Failure to handle spacing increases entry error rates
+- Binary: Credit card field allows and auto-formats spaces? Yes/No
+
+### Expiration Date Format Matching
+- Expiration date input MUST match the format shown on the physical card: **MM / YY**
+- Finding: **72% of sites** do not match expiration format to the physical card
+- Format mismatch leads to unnecessary user hesitation and errors
+- Binary: Expiration date format matches physical card (MM/YY)? Yes/No
+
+### Payment Data Retention on Errors
+- Sensitive payment information (card #, CVV, expiry) MUST be retained if **other** (non-payment) fields trigger a validation error
+- Finding: **34% of sites** clear credit card data on unrelated form errors
+- Finding: Users forced to re-enter payment info are **45% more likely to abandon**
+- Implementation: Validate nonsensitive fields client-side FIRST before payment submission (two-stage validation)
+- Isolate sensitive fields on a dedicated payment step to prevent unrelated reloads from clearing them
+- Binary: Payment data retained on unrelated field errors? Yes/No
+- Binary: Nonsensitive fields validated before payment submission? Yes/No
+- Binary: Sensitive fields isolated on a dedicated payment step? Yes/No
+
+### Shipping Transparency — Specific Dates Required
+- Delivery information MUST provide an estimated delivery **date or date range** — not just a speed label
+- Bad: "Standard 3–5 Days" | Good: "Arrives by Friday, October 12"
+- Finding: **41% of sites** fail to provide delivery date estimates
+- Finding: Users are **20% less likely to abandon** when given specific delivery dates
+- Generic speed labels force mental calculation, increasing abandonment
+- Binary: Specific delivery dates shown (not just speed labels)? Yes/No
+
+### Phone & DOB Field Justification
+- Phone number requested without explanation: **15% of users abandon**
+- Date of Birth requested without clear reason: **35% of users abandon**
+- Every "Why do you need this?" users ask themselves increases drop-off
+- Rule: Minimize intrusive fields; if required, explain the necessity inline
+- Binary: Intrusive fields (phone, DOB) include visible justification? Yes/No
+
+### Form Data Preservation on Error
+- Form submissions returning errors MUST NOT clear previously entered user data
+- Finding: Users forced to retype data are 45% more likely to abandon
+- Binary: Form data preserved when validation errors occur? Yes/No
+
+---
+
+## PART 14: MOBILE-SPECIFIC FORM PRINCIPLES
+
+### Numeric Input Mode
+- Numeric fields MUST use `inputmode="numeric"` or `inputmode="tel"` to trigger the optimized mobile numeric keypad
+- Applies to: Credit card, zip code, phone number, SSN fields
+- Binary: Numeric fields use correct `inputmode` attribute? Yes/No
+
+### Numeric Input Normalization
+- Systems MUST accept common formatting variations for numeric inputs (spaces, hyphens, parentheses for phone numbers)
+- Normalize server-side for storage; never reject user input due to format variation
+- Finding: 89% of users enter numeric data in varied formats
+- Binary: System accepts and normalizes numeric formatting variations? Yes/No
+
+### Prefilled Data in Editable Fields
+- Prefilled values (e.g., shipping address) MUST be placed in editable fields — not static text
+- Purpose: User can easily verify and correct prefilled data
+- Binary: Prefilled data shown in editable fields (not static text)? Yes/No
+
+### Mobile Autofill Attributes
+- ALL form fields MUST use appropriate `autocomplete` attributes
+- Examples: `autocomplete="email"`, `autocomplete="cc-number"`, `autocomplete="cc-exp"`, `autocomplete="cc-csc"`
+- Finding: Using correct attributes can reduce form completion time by **40–60%** for returning users
+- Binary: `autocomplete` attributes on all appropriate fields? Yes/No
+
+---
+
+## PART 15: AUTHENTICATION & SECURITY (NIST SP 800-63B)
+
+### Password Manager Support (Mandatory)
+- Password fields MUST NOT disable/block password managers or browser autofill
+- Finding: Password managers significantly increase strong password adoption
+- Blocking them forces users toward weak, reused passwords
+- Binary: Password managers and autofill not blocked? Yes/No
+
+### Password Paste Tolerance (Mandatory)
+- Password fields MUST permit copy-and-paste
+- Critical for password managers to function
+- Never use `onpaste` event handlers that prevent pasting
+- Binary: Copy-paste allowed in password fields? Yes/No
+
+### Show Password Toggle (Mandatory)
+- Authentication flows MUST provide a "Show Password" toggle during entry
+- Finding: Show password toggle **reduces login failure rates by ~12%**
+- Allows users to identify wrong keyboard layout (Caps Lock, etc.)
+- Binary: Show password toggle (eye icon) available on password field? Yes/No
+
+### HTTPS for Authentication
+- Password entry and submission MUST occur over HTTPS/TLS only
+- No cleartext transmission of credentials
+- Binary: Authentication over HTTPS only? Yes/No
+
+### Password Storage Security
+- Passwords MUST be salted (≥32-bit salt) and hashed using industry-standard scheme
+- Acceptable: bcrypt, scrypt, PBKDF2 with SHA-256
+- Never store plaintext or use weak hashing (MD5, SHA1)
+- Binary: Passwords salted/hashed with approved algorithm? Yes/No
+
+### Password Normalization
+- Verifiers MAY trim leading/trailing whitespace from passwords (reduces lockouts from trivial spacing errors)
+- Binary: Whitespace trimming implemented to reduce login failures? Yes/No
+
+---
+
+## PART 16: ADVANCED FORM INTERACTION PATTERNS
+
+### Tab Index Integrity
+- `tabindex` MUST NOT be set to values >0
+- Positive tabindex values (e.g., `tabindex="1"`) **destroy natural document tab order**
+- Only use `tabindex="0"` (make focusable) or `tabindex="-1"` (remove from tab order)
+- Binary: No positive tabindex values used? Yes/No
+
+### Focus Trap — Components
+- Users MUST be able to move keyboard focus into and out of all components
+- Applies to: menus, carousels, slideshows
+- Exception: Modal focus traps ARE intentional — focus stays inside modal until closed
+- When modal opens: focus moves to first interactive element
+- When modal closes: focus returns to trigger element; Escape key closes modal
+- Binary: All non-modal components allow keyboard escape? Yes/No
+
+### Search Input Accessibility
+- If search input has no visible label, it MUST have `aria-label="Search"` or `aria-labelledby`
+- Finding: Missing labels make search **completely invisible to 100% of screen reader users**
+- Icon-only search buttons MUST have an accessible name (aria-label)
+- Binary: Search input properly labeled (visible or via aria)? Yes/No
+
+### Heading Hierarchy
+- Pages MUST use a proper heading structure (H1 → H2 → H3) — no skipped levels
+- Finding: Broken heading hierarchy creates a "blind maze" for screen reader users who navigate by headings
+- Finding: Functionally impossible to complete tasks for that user segment — **100% abandonment**
+- Binary: Proper heading hierarchy used without level skips? Yes/No
+
+### Icon-Only Buttons
+- Any button or link that uses ONLY an icon (no visible text) MUST have an accessible name via `aria-label`
+- Finding: Icon-only buttons without an accessible name are a "dead end" for 100% of screen reader users
+- Binary: Icon-only interactive elements have accessible names? Yes/No
+
+### Third-Party Payment Options
+- Checkout MUST provide at least one third-party payment option (PayPal, Apple Pay, Google Pay, Amazon Pay)
+- Finding: **8% of users abandon carts** specifically because their preferred payment method is unavailable
+- Binary: At least one third-party payment option available? Yes/No
+
+### Multiple Errors — Simultaneous Display
+- When a form has multiple errors, ALL should be shown simultaneously (not just the first)
+- Either in a summary at the top OR directly associated with each field
+- Single-error-at-a-time display increases frustration and re-submission attempts
+- Binary: Multiple errors shown simultaneously? Yes/No
+
+---
+
+## PART 17: RESPONSIVE IMAGE & VISUAL OPTIMIZATION
+
+### Responsive Images (srcset)
+- Images MUST use `srcset` to serve resolution-appropriate assets
+- Avoids oversized images on mobile that spike LCP and data usage
+- Example: `srcset="small.jpg 320w, medium.jpg 768w, large.jpg 1200w"`
+- Binary: `srcset` used for responsive images? Yes/No
+
+### Dynamic Content — Space Reservation (CLS Prevention)
+- Ads, embeds, and iframes MUST have `width` and `height` attributes set, OR CSS `aspect-ratio` defined
+- Purpose: Reserves layout space before content loads — prevents Cumulative Layout Shift
+- Finding: Ads/embeds without reserved space cause layout shifts that increase misclicks and form errors
+- Binary: Dynamic content has space reserved (width/height or aspect-ratio)? Yes/No
+
+### High-DPI Asset Support
+- Image assets SHOULD include `@2x` and `@3x` variants for Retina/high-DPI displays
+- Finding: Assets not meeting high-DPI standards result in **~10% drop in perceived brand quality**
+- Statistically linked to decreased conversion for luxury demographics
+- Binary: High-DPI (`@2x`/`@3x`) assets provided? Yes/No
+
+### Mobile Horizontal Scroll Prohibition
+- Pages MUST NOT require horizontal scrolling to view primary content
+- Finding: Horizontal scrolling is perceived as a "broken site"
+- Finding: Bounce rate is **~70% higher** for sites requiring horizontal pan on mobile
+- Binary: No horizontal scrolling required for content? Yes/No
+
+### Aspect Ratio Integrity
+- Images MUST be displayed at their intended aspect ratio — never stretched or squashed via CSS
+- Finding: Aspect-ratio-distorted images are perceived as "low trust" / associated with scam sites
+- Finding: ~5% drop in trust-based conversion metrics from image distortion
+- Binary: Images maintain proper aspect ratio? Yes/No

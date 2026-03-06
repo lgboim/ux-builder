@@ -184,11 +184,88 @@ This checklist covers every binary rule in the master database. Use it when perf
 ## PERFORMANCE & FEEDBACK
 
 - [ ] Page load time ≤1 second (or ≤3 seconds with loading indicator shown)
+- [ ] Mobile page load time <3 seconds (>50% of users abandon beyond this)
+- [ ] Mobile page load time <2 seconds (50% of users expect this)
 - [ ] Loading indicators displayed for all operations taking >1 second
+- [ ] Operations >10 seconds show percent-complete progress indicator or allow cancel
 - [ ] Images are optimized for fast delivery
 - [ ] No unnecessary blocking JavaScript
 - [ ] Operations perceived as "instant" (<0.1 seconds) have no spinner
 - [ ] Operations >1 second always show progress (spinner, bar, or status message)
+- [ ] Direct manipulation UI feedback (button press, toggle) within 100ms
+
+---
+
+## CORE WEB VITALS
+
+- [ ] LCP (Largest Contentful Paint) at p75 of real-user field data ≤2500ms
+- [ ] INP (Interaction to Next Paint) at p75 of real-user field data ≤200ms
+- [ ] CLS (Cumulative Layout Shift) at p75 of real-user field data ≤0.1
+- [ ] CWV metrics measured using real-user field data (not lab averages only)
+- [ ] Dynamic content (ads, iframes) has width/height or aspect-ratio reserved (prevents CLS)
+
+---
+
+## ENHANCED FORM DESIGN
+
+- [ ] All fields have persistent, visible labels (NOT placeholder-only labels)
+- [ ] Essential instructions are outside/below the field — not hidden in placeholder text
+- [ ] Every field explicitly marked as "Required" or "Optional"
+- [ ] Promo/gift code fields have Apply button with success confirmation (exception to auto-apply rule)
+- [ ] Credit card field allows and auto-formats spaces (4-4-4-4 groups)
+- [ ] Expiration date format matches physical card (MM/YY)
+- [ ] Payment data (card #, CVV, expiry) retained on unrelated field validation errors
+- [ ] Nonsensitive fields validated client-side before payment submission (two-stage validation)
+- [ ] Sensitive payment fields isolated on a dedicated payment step
+- [ ] Specific delivery dates shown for each shipping option (not just "3–5 days" speed labels)
+- [ ] Intrusive fields (phone, DOB) include visible justification for why they're required
+- [ ] Form data (all fields) preserved when validation errors occur — no clearing on submit
+- [ ] Multiple errors shown simultaneously (not one at a time)
+- [ ] All form fields use appropriate autocomplete attributes (e.g., autocomplete="email", "cc-number", "cc-exp")
+
+---
+
+## MOBILE-SPECIFIC FORM
+
+- [ ] Numeric fields use inputmode="numeric" or inputmode="tel"
+- [ ] System accepts and normalizes numeric input variations (spaces/hyphens in phone numbers)
+- [ ] Prefilled data shown in editable fields (not static uneditable text)
+
+---
+
+## AUTHENTICATION
+
+- [ ] Password managers and browser autofill not blocked on password fields
+- [ ] Copy-paste allowed in password fields
+- [ ] Show password toggle (eye icon) available on password fields
+- [ ] Authentication submitted over HTTPS only (no cleartext credential transmission)
+- [ ] Passwords stored salted (≥32-bit salt) and hashed with approved algorithm (bcrypt/scrypt/PBKDF2)
+
+---
+
+## ADVANCED ACCESSIBILITY — INTERACTION PATTERNS
+
+- [ ] No positive tabindex values used (tabindex only 0 or -1)
+- [ ] All non-modal components allow keyboard focus to enter AND exit
+- [ ] When modal opens: focus moves to first interactive element inside modal
+- [ ] When modal closes: focus returns to trigger element
+- [ ] Escape key closes modals
+- [ ] Search input has visible label or aria-label="Search"
+- [ ] Page uses proper heading hierarchy (H1 → H2 → H3) with no level skips
+- [ ] Icon-only buttons/links have accessible names via aria-label
+- [ ] Dropdown labels are separate elements — NOT embedded as first selectable option
+- [ ] Visually hidden labels remain programmatically available (not display:none or visibility:hidden)
+- [ ] Title attribute NOT used as primary label for form controls
+- [ ] At least one third-party payment option available (PayPal, Apple Pay, Google Pay, etc.)
+
+---
+
+## RESPONSIVE IMAGES & VISUAL QUALITY
+
+- [ ] Images use srcset for resolution-appropriate delivery
+- [ ] High-DPI (@2x/@3x) image assets provided for Retina/high-DPI displays
+- [ ] No horizontal scrolling required for primary content on any viewport
+- [ ] Images maintain proper aspect ratio (not stretched or squashed via CSS)
 
 ---
 
