@@ -1,7 +1,40 @@
 # Complete UX/UI Binary Audit Checklist
-## 150+ Pass/Fail Items — Use for Comprehensive UX Audits
+## 200+ Pass/Fail Items — Use for Comprehensive UX Audits
 
-This checklist covers every binary rule in the master database. Use it when performing a full UX audit. Mark each item: ✅ Pass | ❌ Fail | N/A (not applicable)
+This checklist covers every binary rule in the master database. Mark each item: ✅ Pass | ❌ Fail | N/A (not applicable)
+
+---
+
+## CONTENTS — Jump to Section
+
+| Section | Key Items | Reference |
+|---------|-----------|-----------|
+| **Guest Checkout & Account** | guest prominence, delayed registration | ecommerce.md Part 1 |
+| **Form Field Optimization** | Full Name, Address Line 2, coupon, CVV, ≤8 fields | ecommerce.md Part 2 |
+| **Validation & Error Handling** | blur timing, per-keystroke removal, aria-describedby | ecommerce.md Part 3 |
+| **Input Masking & Formatting** | phone, dates, credit card, email autocap, password toggle | ecommerce.md Part 4 |
+| **Input Control Types** | radio buttons, quantity +/−, price filters | ecommerce.md Part 5 |
+| **Cart & Checkout Interaction** | badge, overlay, Apply buttons, progress ≤4 steps | ecommerce.md Part 6 |
+| **Product Detail Page (PDP)** | images, scale, gallery thumbnails, vertical sections | ecommerce.md Part 8 |
+| **Product Listing Page (PLP)** | variations, sold-out, sorting, filter OR logic | ecommerce.md Part 9 |
+| **Navigation** | no desktop hamburger, mega-menu delay, current location | ecommerce.md Part 10 |
+| **Search** | open field, autocomplete, typo-tolerance, zero results | ecommerce.md Part 11 |
+| **Accessibility — Contrast** | 4.5:1 body, 3:1 large/UI, no rounding | foundations.md Part 5 |
+| **Accessibility — Touch Targets** | ≥44×44px, ≥8px spacing | foundations.md Part 5 |
+| **Accessibility — Keyboard & Focus** | tab order, focus visible, modal management | foundations.md Parts 5–6 |
+| **Accessibility — Alt Text & ARIA** | alt text ≤150 chars, aria-invalid, semantic HTML | foundations.md Part 6 |
+| **Accessibility — Mobile & Motion** | orientation, zoom, sticky headers, animations | foundations.md Part 7 |
+| **Performance & Feedback** | load times, spinners, >1s indicator | foundations.md Part 7 |
+| **Core Web Vitals** | LCP ≤2500ms, INP ≤200ms, CLS ≤0.1 | foundations.md Part 7 |
+| **Enhanced Form Design** | placeholder labels, required/optional, payment retention, shipping dates | ecommerce.md Part 13 |
+| **Mobile-Specific Form** | inputmode, autocomplete attributes, prefilled fields | ecommerce.md Part 14 |
+| **Authentication** | password managers, paste, show toggle, HTTPS | ecommerce.md Part 15 |
+| **Advanced Accessibility Patterns** | tabindex, focus traps, heading hierarchy, icon buttons | ecommerce.md Part 16 |
+| **Responsive Images & Visual Quality** | srcset, high-DPI, no horizontal scroll, aspect ratio | ecommerce.md Part 17 |
+| **General UX Principles** | cognitive laws, column layout, industry conventions | foundations.md Parts 1–3 |
+
+→ **Detailed rules behind each item:** `ecommerce.md` or `foundations.md` (see Reference column above)
+→ **Quantified impact data for any item:** `metrics.md`
 
 ---
 

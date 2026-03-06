@@ -5,6 +5,33 @@ Based on 200,000+ hours of research, 4,400+ test sessions, 771 verified guidelin
 
 ---
 
+## CONTENTS — Jump to Section
+
+| Part | Topic | Key Terms |
+|------|-------|-----------|
+| **1** | Checkout & Cart: Critical Rules | guest checkout, 35.2% lift, 70.19% abandonment |
+| **2** | Form Field Optimization | field count ≤8, Full Name, Address Line 2, coupon, CVV |
+| **3** | Validation & Error Handling | inline validation, on blur, per-keystroke, ARIA |
+| **4** | Input Masking & Mobile Keyboards | phone, dates, email autocap, password toggle |
+| **5** | Input Control Types | radio buttons, dropdowns, quantity +/−, price filters |
+| **6** | Cart Interaction | badge, add-to-cart overlay, Apply buttons, progress bar |
+| **7** | Multi-Step Form Design | >7 fields → wizard, 11%→46% conversion lift |
+| **8** | Product Detail Pages (PDP) | images, scale, human models, gallery thumbs, unit pricing |
+| **9** | Product Listing Pages (PLP) | variations, sold-out, sorting, filter OR logic, View All |
+| **10** | Navigation | no desktop hamburger, mega-menu delay, breadcrumbs |
+| **11** | Search | autocomplete, typo-tolerance, abbreviation mapping, zero results |
+| **12** | AI Auditing Accuracy | 95% specialized vs 20–75% generic |
+| **13** | Enhanced Form Design | placeholder labels, required/optional, payment data retention, expiry format, shipping dates, phone/DOB |
+| **14** | Mobile-Specific Form Principles | inputmode, autocomplete attributes, numeric normalization |
+| **15** | Authentication & Security (NIST) | password managers, paste, show toggle, HTTPS, hashing |
+| **16** | Advanced Interaction Patterns | tabindex, focus traps, heading hierarchy, aria-labels, third-party payment |
+| **17** | Responsive Image & Visual Optimization | srcset, CLS prevention, high-DPI, aspect ratio, horizontal scroll |
+
+→ **Binary pass/fail checklist for all rules above:** `checklist.md`
+→ **All quantified failure rates and thresholds:** `metrics.md`
+
+---
+
 ## PART 1: CHECKOUT & CART — CRITICAL RULES
 
 ### Account Creation

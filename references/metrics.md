@@ -3,6 +3,32 @@
 
 Use this file when justifying recommendations with data, estimating impact, or citing specific research findings.
 
+**Note:** The most common metrics are pre-loaded in `SKILL.md § Embedded Quick Reference`. Check there first before reading this file.
+
+---
+
+## CONTENTS — Jump to Table
+
+| Table | USE THIS WHEN... |
+|-------|-----------------|
+| **Conversion & Business Impact** | Justifying overall checkout investment, quoting conversion lift, ROI arguments |
+| **Form Performance Metrics** | Recommending inline validation, label alignment, single-column layout, multi-step |
+| **Checkout Field Friction Points** | Explaining why specific fields should be changed or hidden |
+| **Core Web Vitals Thresholds** | Auditing performance, setting LCP/INP/CLS targets |
+| **Extended Performance Metrics** | Mobile speed arguments, ad revenue impact, start render timing |
+| **Enhanced Form & Checkout Failure Rates** | Citing how many sites fail a given rule (failure rate %) |
+| **Authentication Metrics** | Justifying show-password toggle, password manager support |
+| **Advanced Accessibility & Interaction Metrics** | Proving impact of heading hierarchy, icon labels, autofill |
+| **Visual & Responsive Metrics** | Justifying high-DPI assets, horizontal scroll fixes, aspect ratio |
+| **Shipping UX Metrics** | Recommending specific delivery dates over speed labels |
+| **Product Page Metrics** | Justifying image count, scale images, thumbnail nav, tabs vs sections |
+| **Navigation & Search Metrics** | Justifying hamburger removal, autocomplete requirements |
+| **Baymard Research Scale** | Establishing research credibility |
+| **Documented Contradictions** | When a rule has a known counterargument or conflict |
+
+→ **Rules behind the numbers:** `ecommerce.md` or `foundations.md`
+→ **Pass/fail checklist:** `checklist.md`
+
 ---
 
 ## CONVERSION & BUSINESS IMPACT

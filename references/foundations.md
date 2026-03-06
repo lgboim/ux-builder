@@ -3,6 +3,25 @@
 
 ---
 
+## CONTENTS — Jump to Section
+
+| Part | Topic | Key Terms |
+|------|-------|-----------|
+| **1** | Nielsen Norman 10 Usability Heuristics | visibility, user control, consistency, error prevention, recognition, flexibility |
+| **2** | Interaction & Biomechanical Laws | Fitts, Miller (7±2), Jakob, Hick, Fogg, Endowed Progress, saccadic scanning |
+| **3** | ISO 9241-110 Dialogue Principles | task suitability, self-descriptiveness, controllability, error tolerance |
+| **4** | WCAG 2.1/2.2 POUR Principles | perceivable, operable, understandable, robust |
+| **5** | WCAG 2.2 Specific Criteria (with numbers) | contrast 4.5:1, touch targets 44px, focus indicators, orientation, animation |
+| **6** | Screen Reader & Semantic Markup | alt text ≤150 chars, ARIA, aria-describedby, semantic HTML |
+| **7** | Mobile Viewport & Performance | sticky headers, responsive, load time thresholds, Core Web Vitals (LCP/INP/CLS) |
+| **8** | Additional Documented Contradictions | SERP paradox, heuristic definition conflict, research discrepancies |
+
+→ **E-commerce-specific rules:** `ecommerce.md`
+→ **Binary audit checklist:** `checklist.md`
+→ **All quantified thresholds and failure rates:** `metrics.md`
+
+---
+
 ## PART 1: NIELSEN NORMAN 10 USABILITY HEURISTICS
 
 These are the core qualitative framework for expert interface evaluation.
